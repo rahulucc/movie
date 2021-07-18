@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+      </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+      </script>
+        <style>
+            .topnav{
+                background-color:rgb(89, 177, 212);
+                overflow:hidden;
+            }
+            .topnav a{
+                float:left;
+                color:black;
+                text-align:center;
+                padding:14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            .topnav a:hover{
+                background-color:#f5f5eb;
+                color:black;
+            }
+            .topnav a.active{
+                background-color:rgb(87, 209, 87);
+                color:whitesmoke;
+                
+            }
+            .rectangle{
+                height: 0px;
+                background-color:rgb(156, 219, 240);
+                
+            }
+            .image-txt-container {
+                display: flex;
+                align-items: left;
+                flex-direction: row;
+              }
+              .column {
+                float: left;
+                width: 33.33%;
+                padding: 5px;
+              }
+        </style>
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        {% for i in db %}
+        <div >
+            <div >
+                <div class="rectangle">
+                 
+        <div class="column">
+            <img src="{{ i.poster.url }}" onclick="{{window.zoom()}}" class="img-responsive" style="width: 500px; height: 300px; float: left; margin-right: 10px;" /></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            
+            <p style="background-color:rgb(211, 211, 150);">
+                <b>Movie Name: {{i.name}}</br>
+                Cast: {{i.cast}}</br>
+                Director: {{i.director}}</br>
+                Release Date: {{i.release_date}}</b>
+        </p>
+            
+</div></div></div></div>
+            {% endfor %}
+    </body>
+</html>
